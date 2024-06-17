@@ -12,17 +12,21 @@ def divide(x, y):
         return "Error! Division by zero."
     return x / y
 
+def percentage(x, y):
+    return (x / 100) * y
+
 def main():
     print("Select operation:")
     print("1. Add")
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
+    print("5. Percentage")  # Added option for percentage
 
     while True:
-        choice = input("Enter choice (1/2/3/4): ")
+        choice = input("Enter choice (1/2/3/4/5): ")
 
-        if choice in ['1', '2', '3', '4']:
+        if choice in ['1', '2', '3', '4', '5']:
             try:
                 num1 = float(input("Enter first number: "))
                 num2 = float(input("Enter second number: "))
@@ -39,6 +43,9 @@ def main():
             elif choice == '4':
                 result = divide(num1, num2)
                 print(f"{num1} / {num2} = {result}")
+            elif choice == '5':
+                result = percentage(num1, num2)
+                print(f"{num2}% of {num1} = {result}")
 
             next_calculation = input("Do you want to perform another calculation? (yes/no): ")
             if next_calculation.lower() != 'yes':
